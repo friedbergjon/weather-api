@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
-import axiod from 'axios
-'
+import axiod from 'axios'
+
 class App extends Component {
   render() {
     return (
@@ -13,7 +13,7 @@ class App extends Component {
       </div>
     )
   }
-
+}
 export default App; 
 
 //with help from Linda Chin's code//

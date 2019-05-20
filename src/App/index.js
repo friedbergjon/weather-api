@@ -34,6 +34,9 @@ class App extends Component {
       description: res.data.weather[0].description,
       minTemp: res.data.main.temp_min,
       maxTemp: res.data.main.temp_max,
+      sunrise: res.data.sys.sunrise,
+      sunset: res.data.sys.sunset
+
   })
   }
 //help from Sejla Ali code//
@@ -51,8 +54,10 @@ class App extends Component {
           <h1>{this.state.city}</h1>
           <h2>{this.state.currentTemp}</h2>
           <h3>{this.state.description}</h3>
-          <h2>Min Temp:{this.state.minTemp}</h2>
-          <h2>Max Temp:{this.state.maxTemp}</h2>
+          <h2>Min Temp: {this.state.minTemp}</h2>
+          <h2>Max Temp: {this.state.maxTemp}</h2>
+          <h3>Sunrise: {this.state.sunrise}</h3>
+          <h3>Sunset: {this.state.sunset}</h3>
         </form>
       </div>
     )

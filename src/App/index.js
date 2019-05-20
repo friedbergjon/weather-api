@@ -8,7 +8,7 @@ class App extends Component {
 
     this.state = {
      zipcode: "",
-     data: ""
+  
     }
 
     this.fetchWeather = this.fetchWeather.bind(this);
@@ -26,7 +26,8 @@ class App extends Component {
     const inputZipcode = this.state.zipcode;
     const url = "http://api.openweathermap.org/data/2.5/weather?zip=";
     const api_key = "0073d067c1ec39cd7867800a9600025e";
-    const res = await axios(`${url}${inputZipcode},us&APPID=${api_key}`);
+    const res = await axios(`${url}${inputZipcode},us&units=imperial&APPID=${api_key}`);
+    //https://openweathermap.desk.com/customer/en/portal/articles/1996493-switching-between-temperature-units
     console.log(res.data);
     this.setState({
       city: res.data.name,
@@ -36,7 +37,7 @@ class App extends Component {
       maxTemp: res.data.main.temp_max,
       sunrise: res.data.sys.sunrise,
       sunset: res.data.sys.sunset
-
+//
   })
   }
 //help from Sejla Ali code//

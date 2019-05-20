@@ -24,7 +24,7 @@ class App extends Component {
     event.preventDefault();
     const inputCity = this.state.city;
     const url = "http://api.openweathermap.org/data/2.5/weather?q=";
-    const api_key = "c25797bd3ce9afc37e66cb35c1c801dd";
+    const api_key = "0073d067c1ec39cd7867800a9600025e";
     const res = await axios(`${url}${inputCity}&APPID=${api_key}`);
     console.log(res.data);
   }

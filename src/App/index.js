@@ -7,7 +7,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-     zipcode: ""
+     zipcode: "",
+     data: ""
     }
 
     this.fetchWeather = this.fetchWeather.bind(this);
@@ -27,8 +28,15 @@ class App extends Component {
     const api_key = "0073d067c1ec39cd7867800a9600025e";
     const res = await axios(`${url}${inputZipcode},us&APPID=${api_key}`);
     console.log(res.data);
+    this.setState({
+      city: res.data.name,
+      currentTemp: res.data.main.temp,
+      description: res.data.weather[0].description,
+      minTemp: res.data.main.temp_min,
+      maxTemp: res.data.main.temp_max,
+  })
   }
-
+//help from Sejla Ali code//
   render() {
 //https://openweathermap.org/current
 // URL listed for getting zipcode//
@@ -40,6 +48,11 @@ class App extends Component {
        <form onSubmit={this.fetchWeather}>
           <input type="text" name="zipcode" value={this.state.zipcode} placeholder="zipcode" id="zipcode" onChange={this.handleInputChange}/>
   	      <input type="submit" value="Get Weather" id="getTemp"/>
+          <h1>{this.state.city}</h1>
+          <h2>{this.state.currentTemp}</h2>
+          <h3>{this.state.description}</h3>
+          <h2>Min Temp:{this.state.minTemp}</h2>
+          <h2>Max Temp:{this.state.maxTemp}</h2>
         </form>
       </div>
     )
